@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -407,148 +406,210 @@ section { position: relative; z-index: 1; }
 .market-card:hover { background: rgba(211,209,199,0.06); border-color: var(--border2); }
 .market-ticker {
   font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.3em;
-  color: var(--gold); text-transform: uppercase; margin-bottom: 8px; display: block;
+  text-transform: uppercase; color: var(--gold3); margin-bottom: 10px; display: block;
 }
 .market-card h4 {
-  font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300;
-  margin-bottom: 6px; color: var(--parch);
+  font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400;
+  margin-bottom: 8px;
 }
-.market-change { font-size: 0.85rem; font-style: italic; color: var(--muted); }
-.mup { color: #97C459; } .mdown { color: #F09595; } .mflat { color: var(--gold); }
+.market-change {
+  font-size: 0.85rem; color: var(--muted);
+}
+.mup { color: #97C459 !important; }
+.mdown { color: #F09595 !important; }
+.mflat { color: var(--gold) !important; }
 
-/* ── INSTAGRAM CTA ───────────────────────────────────────────── */
-#instagram {
-  padding: 100px 0;
-  text-align: center;
-  background: linear-gradient(to bottom, var(--ink2), var(--ink));
-  border-top: 1px solid var(--border);
+/* ── WEEKLY REVIEW ─────────────────────────────────────────────── */
+#weekly {
+  padding: 120px 0;
+  background: linear-gradient(to bottom, var(--ink2), var(--ink), var(--ink2));
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
 }
+
+/* Language switcher */
+.week-lang-bar {
+  display: flex; justify-content: center; gap: 6px; margin-bottom: 60px;
+}
+.wlang-btn {
+  font-family: 'Cinzel', serif; font-size: 8.5px; letter-spacing: 0.3em;
+  text-transform: uppercase; padding: 7px 18px;
+  border: 1px solid var(--border);
+  background: transparent; color: var(--muted); cursor: pointer; transition: all 0.25s;
+}
+.wlang-btn:hover { border-color: var(--gold); color: var(--gold); }
+.wlang-btn.active {
+  border-color: var(--gold2); color: var(--gold2);
+  background: rgba(211,209,199,0.08);
+}
+
+/* Week panels */
+.week-panel { display: none; }
+.week-panel.active { display: block; }
+
+/* Two-column: past / future */
+.week-cols {
+  display: grid; grid-template-columns: 1fr 1px 1fr; gap: 56px; align-items: start;
+}
+.week-col-divider { background: var(--border2); }
+
+.week-col-label {
+  font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.45em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 28px; display: block;
+}
+.week-col h3 {
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem,2.5vw,2rem);
+  font-weight: 300; line-height: 1.3; margin-bottom: 20px;
+}
+
+/* ════════════════════════════════════════
+   EDITABLE CONTENT BLOCK — update weekly
+   ════════════════════════════════════════ */
+.week-body {
+  color: var(--muted); font-size: 1.0rem; line-height: 1.85;
+}
+.week-body p { margin-bottom: 14px; }
+.week-body strong { color: var(--parch); font-weight: 400; }
+
+/* Events to watch */
+.week-events { margin-top: 28px; }
+.week-event {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 14px 0; border-bottom: 1px solid var(--border);
+}
+.week-event:last-child { border-bottom: none; }
+.week-event-date {
+  font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 0.2em;
+  color: var(--gold); min-width: 60px; padding-top: 3px; text-transform: uppercase;
+}
+.week-event-text { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+.week-event-text strong { color: var(--parch); font-weight: 400; }
+
+/* Score summary row */
+.week-score-row {
+  display: flex; gap: 2px; margin-top: 36px;
+}
+.week-score-item {
+  flex: 1; padding: 16px 12px; border: 1px solid var(--border);
+  background: var(--cream); text-align: center;
+}
+.week-score-item .ws-label {
+  font-family: 'Cinzel', serif; font-size: 7px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 6px; display: block;
+}
+.week-score-item .ws-val {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold);
+}
+
+/* Week date stamp */
+.week-stamp {
+  font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 0.35em;
+  text-transform: uppercase; color: rgba(211,209,199,0.3);
+  text-align: center; margin-top: 56px;
+}
+
+/* ── INSTAGRAM CTA ─────────────────────────────────────────────── */
+#instagram { padding: 120px 0; }
+
+.insta-cta {
+  border: 1px solid var(--border); padding: 80px 60px;
+  text-align: center; background: var(--cream); position: relative;
+}
+.insta-cta::before, .insta-cta::after {
+  content: ''; position: absolute; left: 20px; right: 20px;
+  height: 1px; background: linear-gradient(to right, transparent, var(--border2), transparent);
+}
+.insta-cta::before { top: 14px; }
+.insta-cta::after  { bottom: 14px; }
 
 .insta-cta h2 {
-  font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,5vw,3.5rem);
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,4vw,3rem);
   font-weight: 300; margin-bottom: 16px;
 }
 .insta-cta h2 em { font-style: italic; color: var(--gold); }
-.insta-cta p { color: var(--muted); font-size: 1.05rem; margin-bottom: 14px; font-style: italic; }
-.insta-bio {
-  font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.2em;
-  color: var(--gold); margin-bottom: 40px; display: block;
-}
+.insta-cta p { color: var(--muted); font-size: 1.05rem; margin-bottom: 8px; }
+.insta-bio { font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 0.3em; color: rgba(211,209,199,0.3); display: block; margin-bottom: 40px; }
 
 .insta-btn {
-  display: inline-flex; align-items: center; gap: 12px;
-  font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.3em;
-  text-transform: uppercase; padding: 16px 36px;
-  border: 1px solid var(--gold); color: var(--gold); text-decoration: none;
-  transition: all 0.3s; background: transparent; position: relative; overflow: hidden;
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.3em;
+  text-transform: uppercase; padding: 14px 32px;
+  border: 1px solid var(--border2); color: var(--parch);
+  text-decoration: none; transition: all 0.3s; margin-bottom: 60px;
 }
-.insta-btn::before {
-  content: ''; position: absolute; inset: 0;
-  background: var(--gold); transform: translateX(-100%); transition: transform 0.35s;
-}
-.insta-btn:hover { color: var(--ink); }
-.insta-btn:hover::before { transform: translateX(0); }
-.insta-btn span { position: relative; z-index: 1; }
-.insta-icon { width: 18px; height: 18px; position: relative; z-index: 1; fill: currentColor; }
+.insta-btn:hover { background: rgba(211,209,199,0.08); border-color: var(--gold); color: var(--gold); }
+.insta-icon { width: 16px; height: 16px; fill: currentColor; }
 
-.insta-grid {
-  display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
-  max-width: 600px; margin: 60px auto 0;
-}
+.insta-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
 .insta-post {
-  aspect-ratio: 1; display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  padding: 20px; text-align: center;
-  border: 1px solid var(--border); position: relative; overflow: hidden;
-  transition: all 0.3s; background: var(--ink2);
+  padding: 24px 20px; border: 1px solid var(--border);
+  background: rgba(241,239,232,0.02);
+  display: flex; flex-direction: column; gap: 6px;
 }
-.insta-post:hover { border-color: var(--border2); transform: scale(1.02); }
-.insta-post::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(180,178,169,0.07), transparent 70%);
-}
-.insta-post .ip-label {
-  font-family: 'Cinzel', serif; font-size: 7px; letter-spacing: 0.25em;
-  color: var(--gold); text-transform: uppercase; margin-bottom: 8px;
-  position: relative; z-index: 1;
-}
-.insta-post .ip-val {
-  font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300;
-  color: var(--parch); position: relative; z-index: 1; line-height: 1.2;
-}
-.insta-post .ip-change {
-  font-family: 'Cinzel', serif; font-size: 8px; margin-top: 4px;
-  position: relative; z-index: 1;
-}
-.insta-post .ip-tag {
-  position: absolute; bottom: 8px; right: 10px;
-  font-family: 'Cinzel', serif; font-size: 6px; letter-spacing: 0.2em;
-  color: rgba(211,209,199,0.3); z-index: 1;
-}
+.ip-label { font-family: 'Cinzel', serif; font-size: 7.5px; letter-spacing: 0.25em; color: var(--muted); text-transform: uppercase; }
+.ip-val { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 300; color: var(--parch); }
+.ip-change { font-family: 'Cinzel', serif; font-size: 8px; }
+.ip-tag { font-family: 'Cinzel', serif; font-size: 7px; letter-spacing: 0.2em; color: rgba(211,209,199,0.25); margin-top: auto; }
 
-/* ── FOOTER ──────────────────────────────────────────────────── */
+/* ── FOOTER ─────────────────────────────────────────────────── */
 footer {
-  padding: 50px 30px;
+  padding: 60px 30px; text-align: center;
   border-top: 1px solid var(--border);
-  text-align: center;
 }
 .footer-logo {
-  font-family: 'Cinzel', serif; font-size: 16px; letter-spacing: 0.28em;
-  color: var(--gold); margin-bottom: 10px; display: block;
+  font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 0.45em;
+  color: var(--gold); display: block; margin-bottom: 16px;
 }
-.footer-tagline {
-  font-family: 'Cormorant Garamond', serif; font-style: italic;
-  font-size: 1rem; color: var(--muted); margin-bottom: 28px;
-}
-.footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
+.footer-tagline { font-size: 0.9rem; color: var(--muted); margin-bottom: 24px; font-style: italic; }
+.footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 32px; flex-wrap: wrap; }
 .footer-links a {
   font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 0.3em;
   text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s;
 }
 .footer-links a:hover { color: var(--gold); }
 .footer-disclaimer {
-  font-family: 'Cinzel', serif; font-size: 7.5px; letter-spacing: 0.2em;
-  color: rgba(241,239,232,0.25); text-transform: uppercase; margin-bottom: 12px;
-  max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.8;
+  font-size: 0.78rem; color: rgba(211,209,199,0.25); max-width: 640px; margin: 0 auto 16px; line-height: 1.6;
 }
-.footer-copy {
-  font-family: 'Cinzel', serif; font-size: 7.5px; letter-spacing: 0.3em;
-  color: rgba(241,239,232,0.2); text-transform: uppercase;
-}
+.footer-copy { font-family: 'Cinzel', serif; font-size: 7.5px; letter-spacing: 0.3em; color: rgba(211,209,199,0.2); }
 
-/* ── ANIMATIONS ──────────────────────────────────────────────── */
+/* ── ANIMATIONS ─────────────────────────────────────────────── */
 @keyframes fadeUp {
-  from { opacity:0; transform:translateY(28px); }
-  to   { opacity:1; transform:translateY(0); }
+  from { opacity:0; transform: translateY(24px); }
+  to   { opacity:1; transform: translateY(0); }
 }
 @keyframes fadeIn {
-  from { opacity:0; }
-  to   { opacity:1; }
+  from { opacity:0; } to { opacity:1; }
 }
 @keyframes scrollPulse {
-  0%,100% { opacity:0.4; transform:scaleY(1); }
-  50%      { opacity:1;   transform:scaleY(1.2); }
+  0%, 100% { opacity: 0.4; } 50% { opacity: 1; }
 }
+
+/* ── REVEAL ─────────────────────────────────────────────────── */
 .reveal {
   opacity: 0; transform: translateY(30px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
-.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ── RESPONSIVE ──────────────────────────────────────────────── */
-@media (max-width:900px) {
-  .briefs-grid { grid-template-columns:1fr; }
-  .about-grid { grid-template-columns:1fr; }
-  .about-divider { display:none; }
-  .markets-grid { grid-template-columns:repeat(2,1fr); }
-  .signal-grid { grid-template-columns:repeat(2,1fr); }
-  .insta-grid { grid-template-columns:repeat(2,1fr); max-width:400px; }
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-divider { display: none; }
+  .briefs-grid { grid-template-columns: 1fr 1fr; }
+  .markets-grid { grid-template-columns: repeat(2,1fr); }
+  .signal-grid { grid-template-columns: repeat(2,1fr); }
+  .week-cols { grid-template-columns: 1fr; gap: 40px; }
+  .week-col-divider { display: none; }
   nav { gap: 16px; padding: 0 10px; flex-wrap: wrap; height: auto; padding: 8px 16px; top: 48px; }
   .lang-bar { padding: 0 16px; }
+  .insta-cta { padding: 50px 24px; }
 }
-@media (max-width:600px) {
-  .markets-grid { grid-template-columns:1fr 1fr; }
+@media (max-width: 600px) {
+  .markets-grid { grid-template-columns: 1fr 1fr; }
   nav a:not(.insta) { display: none; }
+  .briefs-grid { grid-template-columns: 1fr; }
+  .insta-grid { grid-template-columns: 1fr 1fr; }
+  .week-score-row { flex-wrap: wrap; }
+  .week-lang-bar { flex-wrap: wrap; }
 }
 </style>
 </head>
@@ -572,6 +633,7 @@ footer {
   <a href="#about">About</a>
   <a href="#briefs">Daily Briefs</a>
   <a href="#signal">Live Signal</a>
+  <a href="#weekly">Weekly Review</a>
   <a href="#markets">Markets</a>
   <a href="https://instagram.com/themacrodesks" target="_blank" class="insta">
     <svg class="insta-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -754,30 +816,30 @@ footer {
       <div class="signal-grid">
         <div class="signal-item">
           <span class="s-label">S&P 500</span>
-          <span class="s-val">7 050</span>
-          <span class="s-change down">–0.6%</span>
+          <span class="s-val">5 560</span>
+          <span class="s-change up">+4.6%</span>
         </div>
         <div class="signal-item">
           <span class="s-label">WTI Crude</span>
-          <span class="s-val">$90</span>
-          <span class="s-change down">+7.1%</span>
+          <span class="s-val">$63</span>
+          <span class="s-change down">–2.4%</span>
         </div>
         <div class="signal-item">
           <span class="s-label">Gold</span>
-          <span class="s-val">$4 750</span>
-          <span class="s-change down">–1.7%</span>
+          <span class="s-val">$3 320</span>
+          <span class="s-change up">+1.2%</span>
         </div>
         <div class="signal-item">
           <span class="s-label">VIX</span>
-          <span class="s-val">> 20</span>
-          <span class="s-change down">↑ Rising</span>
+          <span class="s-val">25</span>
+          <span class="s-change down">↓ Easing</span>
         </div>
       </div>
 
       <div class="decision-block">
-        <span class="d-label">Today's Decision · 20 April 2026 · 12:00 CEST</span>
-        <div class="d-action" id="sig-decision">Defensive Caution</div>
-        <div class="d-conf" id="sig-conf">Confidence 72% · Ceasefire expires tonight 20:00 ET</div>
+        <span class="d-label">Weekly Reading · Week 17, 2026 · Updated Sunday 26 April 2026</span>
+        <div class="d-action" id="sig-decision">Cautious Recovery</div>
+        <div class="d-conf" id="sig-conf">Confidence 61% · Trade truce fragile · Fed in focus</div>
       </div>
 
       <div class="signal-nav">
@@ -785,6 +847,273 @@ footer {
         <button class="signal-btn">Next →</button>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     WEEKLY REVIEW  ← NEW SECTION
+     ─────────────────────────────────────
+     HOW TO UPDATE (every Sunday):
+     1. Change the week dates in .week-stamp
+     2. Edit text inside each .week-panel
+        (both languages have same structure)
+     3. Update .week-score-item values
+     4. Update .week-event items for next week
+═══════════════════════════════════════ -->
+<section id="weekly">
+  <div class="section-wrap">
+
+    <div class="section-header reveal">
+      <span class="eyebrow">Weekly Debrief</span>
+      <h2>What happened — what comes next</h2>
+    </div>
+
+    <!-- Language switcher -->
+    <div class="week-lang-bar reveal">
+      <button class="wlang-btn active" onclick="switchLang('en')">EN</button>
+      <button class="wlang-btn" onclick="switchLang('de')">DE</button>
+      <button class="wlang-btn" onclick="switchLang('fr')">FR</button>
+      <button class="wlang-btn" onclick="switchLang('it')">IT</button>
+    </div>
+
+    <!-- ══════════════════════════════
+         ENGLISH PANEL
+    ══════════════════════════════ -->
+    <div class="week-panel active reveal" id="panel-en">
+      <div class="week-cols">
+
+        <!-- LEFT: This week -->
+        <div class="week-col">
+          <span class="week-col-label">This Week · Apr 21–26</span>
+          <h3>Risk rally on trade truce — but conviction remains low</h3>
+          <div class="week-body">
+            <!-- ─── EDIT THIS TEXT EVERY SUNDAY ─── -->
+            <p>The dominant theme of the week was the <strong>US-China trade truce</strong> — a 90-day pause in tariff escalation that triggered a sharp relief rally across global equities. The S&P 500 rebounded roughly <strong>+4.6%</strong> from Monday's lows, while European indices recovered more modestly.</p>
+            <p>Gold consolidated near <strong>$3 320</strong>, maintaining its structural bull trend without a significant breakdown. WTI crude continued sliding on demand concerns and OPEC+ output signals, settling below <strong>$63</strong>.</p>
+            <p>The Federal Reserve remained sidelined. Powell's language stayed cautious — no rate cuts signalled before inflation shows a sustained downward path. Dollar weakness persisted, with EUR/USD holding above 1.13.</p>
+            <p>The week's key miss: the market priced a near-perfect trade resolution. The underlying tensions — tech restrictions, Taiwan, rare earths — remain unresolved. This rally has legs only if the truce holds.</p>
+            <!-- ─── END EDITABLE BLOCK ─── -->
+          </div>
+
+          <!-- Score summary -->
+          <div class="week-score-row">
+            <!-- ─── UPDATE THESE VALUES EACH WEEK ─── -->
+            <div class="week-score-item">
+              <span class="ws-label">Avg Score</span>
+              <span class="ws-val">53</span>
+            </div>
+            <div class="week-score-item">
+              <span class="ws-label">Peak</span>
+              <span class="ws-val up">68</span>
+            </div>
+            <div class="week-score-item">
+              <span class="ws-label">Low</span>
+              <span class="ws-val down">38</span>
+            </div>
+            <div class="week-score-item">
+              <span class="ws-label">Bias</span>
+              <span class="ws-val neutral">Mixed</span>
+            </div>
+            <!-- ─── END SCORE VALUES ─── -->
+          </div>
+        </div>
+
+        <div class="week-col-divider"></div>
+
+        <!-- RIGHT: Next week -->
+        <div class="week-col">
+          <span class="week-col-label">Ahead · Apr 28 – May 2</span>
+          <h3>Fed week, PCE data & earnings season peak</h3>
+          <div class="week-body">
+            <!-- ─── EDIT THIS TEXT EVERY SUNDAY ─── -->
+            <p>Next week is <strong>macro-heavy</strong>. The key releases will define whether the current rally has fundamental backing or remains purely sentiment-driven.</p>
+            <p>The <strong>FOMC meeting (Wed–Thu)</strong> is the centrepiece. No rate change expected, but Powell's press conference will be parsed for any pivot signal. Any hint of July cuts would be bullish for equities and negative for the dollar.</p>
+            <p><strong>Core PCE (Wednesday)</strong> is the Fed's preferred inflation gauge. A print below 2.6% would reinforce the disinflation narrative. A hot number would complicate the rate-cut timeline significantly.</p>
+            <p>Earnings continue with <strong>Apple, Amazon, and Meta</strong> reporting. Guidance on AI capex and consumer demand will be the key market drivers. Any disappointment in these three names could cap the rally quickly.</p>
+            <p>Geopolitically, the <strong>US-China truce mechanics</strong> will be tested as negotiations move to the working-group level. Watch for any hardening of rhetoric around semiconductor export controls.</p>
+            <!-- ─── END EDITABLE BLOCK ─── -->
+          </div>
+
+          <!-- Events to watch -->
+          <div class="week-events">
+            <!-- ─── UPDATE THESE EVENTS EACH WEEK ─── -->
+            <div class="week-event">
+              <span class="week-event-date">Mon 28</span>
+              <div class="week-event-text"><strong>Dallas Fed Manufacturing</strong> — early signal on US industrial activity post-tariff truce.</div>
+            </div>
+            <div class="week-event">
+              <span class="week-event-date">Wed 30</span>
+              <div class="week-event-text"><strong>Core PCE · ADP Employment</strong> — inflation gauge + labour market health ahead of NFP.</div>
+            </div>
+            <div class="week-event">
+              <span class="week-event-date">Thu 1</span>
+              <div class="week-event-text"><strong>FOMC Decision · Powell Presser</strong> — no change expected, but every word matters. Apple & Amazon earnings.</div>
+            </div>
+            <div class="week-event">
+              <span class="week-event-date">Fri 2</span>
+              <div class="week-event-text"><strong>NFP Jobs Report</strong> — consensus ~170K. Miss or beat will set the tone for May.</div>
+            </div>
+            <!-- ─── END EVENTS ─── -->
+          </div>
+        </div>
+
+      </div>
+      <p class="week-stamp">Week 17 · 2026 · Updated every Sunday · @TheMacroDesk</p>
+    </div>
+
+    <!-- ══════════════════════════════
+         GERMAN PANEL
+    ══════════════════════════════ -->
+    <div class="week-panel" id="panel-de">
+      <div class="week-cols">
+
+        <div class="week-col">
+          <span class="week-col-label">Diese Woche · 21.–26. April</span>
+          <h3>Risikorally nach Handelswaffenstillstand — Überzeugung bleibt gering</h3>
+          <div class="week-body">
+            <!-- ─── EDIT THIS TEXT EVERY SUNDAY ─── -->
+            <p>Das dominierende Thema der Woche war der <strong>US-China-Handelswaffenstillstand</strong> — eine 90-tägige Pause bei der Zollausweitung, die eine starke Erholungsrally an den globalen Aktienmärkten auslöste. Der S&P 500 erholte sich vom Montag-Tief um rund <strong>+4,6%</strong>, europäische Indizes legten moderater zu.</p>
+            <p>Gold konsolidierte nahe <strong>3 320 USD</strong> und behauptet seinen strukturellen Aufwärtstrend. WTI-Rohöl fiel auf Nachfragesorgen und OPEC+-Signale unter <strong>63 USD</strong>.</p>
+            <p>Die Fed blieb abwartend. Powell hielt an vorsichtiger Sprache fest — keine Zinssenkungen, bevor die Inflation nachhaltig fällt. Der Dollar blieb schwach, EUR/USD über 1,13.</p>
+            <p>Der Fehler der Woche: Der Markt hat eine nahezu perfekte Handelslösung eingepreist. Die strukturellen Spannungen — Tech-Restriktionen, Taiwan, seltene Erden — bleiben ungelöst. Die Rally hat nur dann Substanz, wenn der Waffenstillstand hält.</p>
+            <!-- ─── END EDITABLE BLOCK ─── -->
+          </div>
+          <div class="week-score-row">
+            <div class="week-score-item"><span class="ws-label">Ø Score</span><span class="ws-val">53</span></div>
+            <div class="week-score-item"><span class="ws-label">Hoch</span><span class="ws-val up">68</span></div>
+            <div class="week-score-item"><span class="ws-label">Tief</span><span class="ws-val down">38</span></div>
+            <div class="week-score-item"><span class="ws-label">Bias</span><span class="ws-val neutral">Gemischt</span></div>
+          </div>
+        </div>
+
+        <div class="week-col-divider"></div>
+
+        <div class="week-col">
+          <span class="week-col-label">Ausblick · 28. Apr – 2. Mai</span>
+          <h3>Fed-Woche, PCE-Daten & Höhepunkt der Berichtssaison</h3>
+          <div class="week-body">
+            <!-- ─── EDIT THIS TEXT EVERY SUNDAY ─── -->
+            <p>Die kommende Woche ist <strong>makroökonomisch bedeutsam</strong>. Die wichtigsten Veröffentlichungen werden zeigen, ob die aktuelle Rally fundamental untermauert ist oder rein stimmungsgetrieben bleibt.</p>
+            <p>Das <strong>FOMC-Treffen (Mi–Do)</strong> steht im Mittelpunkt. Keine Zinsänderung erwartet, aber Powells Pressekonferenz wird auf Hinweise auf eine Kehrtwende analysiert. Anzeichen für Zinssenkungen im Juli wären positiv für Aktien und negativ für den Dollar.</p>
+            <p><strong>Kern-PCE (Mittwoch)</strong> ist der bevorzugte Inflationsindikator der Fed. Ein Wert unter 2,6% würde die Disinflationsgeschichte bestätigen — ein heißes Ergebnis würde den Zinssenkungsfahrplan erschweren.</p>
+            <p>Quartalsergebnisse kommen von <strong>Apple, Amazon und Meta</strong>. Ausblick auf KI-Capex und Verbrauchernachfrage werden zentrale Markttreiber sein.</p>
+            <p>Geopolitisch: Die <strong>US-China-Waffenstillstandsmechanismen</strong> werden auf Arbeitsebene getestet. Auf Halbleiter-Exportkontrollen achten.</p>
+            <!-- ─── END EDITABLE BLOCK ─── -->
+          </div>
+          <div class="week-events">
+            <div class="week-event"><span class="week-event-date">Mo 28</span><div class="week-event-text"><strong>Dallas Fed Industrie</strong> — Frühindikator für US-Aktivität nach Waffenstillstand.</div></div>
+            <div class="week-event"><span class="week-event-date">Mi 30</span><div class="week-event-text"><strong>Kern-PCE · ADP-Beschäftigung</strong> — Inflation + Arbeitsmarkt vor NFP.</div></div>
+            <div class="week-event"><span class="week-event-date">Do 1</span><div class="week-event-text"><strong>FOMC-Entscheid · Powell-PK</strong> — keine Änderung erwartet, jedes Wort zählt. Apple & Amazon Ergebnisse.</div></div>
+            <div class="week-event"><span class="week-event-date">Fr 2</span><div class="week-event-text"><strong>NFP-Beschäftigungsbericht</strong> — Konsens ca. 170K. Ergebnis gibt den Ton für Mai vor.</div></div>
+          </div>
+        </div>
+
+      </div>
+      <p class="week-stamp">Woche 17 · 2026 · Jeden Sonntag aktualisiert · @TheMacroDesk</p>
+    </div>
+
+    <!-- ══════════════════════════════
+         FRENCH PANEL
+    ══════════════════════════════ -->
+    <div class="week-panel" id="panel-fr">
+      <div class="week-cols">
+
+        <div class="week-col">
+          <span class="week-col-label">Cette semaine · 21–26 avril</span>
+          <h3>Rally de soulagement sur trêve commerciale — sans réelle conviction</h3>
+          <div class="week-body">
+            <!-- ─── MODIFIER CE TEXTE CHAQUE DIMANCHE ─── -->
+            <p>Le thème dominant de la semaine a été la <strong>trêve commerciale sino-américaine</strong> — une pause de 90 jours dans l'escalade tarifaire qui a déclenché un fort rally de soulagement sur les marchés mondiaux. Le S&P 500 a rebondi d'environ <strong>+4,6%</strong> depuis les plus bas de lundi, les indices européens progressant plus modestement.</p>
+            <p>L'or a consolidé près de <strong>3 320 USD</strong>, maintenant sa tendance haussière structurelle. Le WTI a continué de glisser sous les <strong>63 USD</strong> sur fond de craintes concernant la demande et les signaux de l'OPEC+.</p>
+            <p>La Réserve fédérale est restée en retrait. Powell a maintenu un discours prudent — pas de baisse de taux avant que l'inflation montre une trajectoire baissière durable. Le dollar est resté faible, l'EUR/USD se maintenant au-dessus de 1,13.</p>
+            <p>L'erreur de la semaine : le marché a intégré une résolution quasi parfaite du conflit commercial. Les tensions structurelles — restrictions technologiques, Taïwan, terres rares — restent entières. Ce rally n'a de substance que si la trêve tient.</p>
+            <!-- ─── FIN DU BLOC MODIFIABLE ─── -->
+          </div>
+          <div class="week-score-row">
+            <div class="week-score-item"><span class="ws-label">Score moy.</span><span class="ws-val">53</span></div>
+            <div class="week-score-item"><span class="ws-label">Pic</span><span class="ws-val up">68</span></div>
+            <div class="week-score-item"><span class="ws-label">Bas</span><span class="ws-val down">38</span></div>
+            <div class="week-score-item"><span class="ws-label">Biais</span><span class="ws-val neutral">Mixte</span></div>
+          </div>
+        </div>
+
+        <div class="week-col-divider"></div>
+
+        <div class="week-col">
+          <span class="week-col-label">À venir · 28 avr – 2 mai</span>
+          <h3>Semaine Fed, données PCE & apogée des résultats d'entreprises</h3>
+          <div class="week-body">
+            <!-- ─── MODIFIER CE TEXTE CHAQUE DIMANCHE ─── -->
+            <p>La semaine prochaine est <strong>macro-intensive</strong>. Les publications clés détermineront si le rally actuel repose sur des fondamentaux solides ou reste purement sentiment-driven.</p>
+            <p>Le <strong>FOMC (mer–jeu)</strong> est au centre. Aucun changement de taux attendu, mais la conférence de presse de Powell sera scrutée pour tout signal de pivot. Un indice sur des baisses en juillet serait haussier pour les actions et baissier pour le dollar.</p>
+            <p>Le <strong>PCE core (mercredi)</strong> est l'indicateur d'inflation privilégié de la Fed. Un chiffre sous 2,6% renforcerait le narratif désinflation — un résultat chaud compliquerait significativement le calendrier de baisse des taux.</p>
+            <p>Les résultats continuent avec <strong>Apple, Amazon et Meta</strong>. Les guidances sur le capex IA et la demande des consommateurs seront les principaux moteurs de marché. Une déception sur ces trois noms pourrait rapidement brider le rally.</p>
+            <p>Sur le plan géopolitique, les <strong>mécanismes de la trêve sino-américaine</strong> seront testés au niveau des groupes de travail. Surveiller tout durcissement du discours sur les contrôles à l'exportation des semi-conducteurs.</p>
+            <!-- ─── FIN DU BLOC MODIFIABLE ─── -->
+          </div>
+          <div class="week-events">
+            <div class="week-event"><span class="week-event-date">Lun 28</span><div class="week-event-text"><strong>Dallas Fed Industrie</strong> — signal précoce sur l'activité US post-trêve tarifaire.</div></div>
+            <div class="week-event"><span class="week-event-date">Mer 30</span><div class="week-event-text"><strong>PCE core · ADP emploi</strong> — inflation + marché du travail avant le NFP.</div></div>
+            <div class="week-event"><span class="week-event-date">Jeu 1</span><div class="week-event-text"><strong>Décision FOMC · Conf. Powell</strong> — pas de changement attendu, chaque mot compte. Résultats Apple & Amazon.</div></div>
+            <div class="week-event"><span class="week-event-date">Ven 2</span><div class="week-event-text"><strong>NFP rapport emploi</strong> — consensus ~170K. Le résultat donnera le ton pour mai.</div></div>
+          </div>
+        </div>
+
+      </div>
+      <p class="week-stamp">Semaine 17 · 2026 · Mis à jour chaque dimanche · @TheMacroDesk</p>
+    </div>
+
+    <!-- ══════════════════════════════
+         ITALIAN PANEL
+    ══════════════════════════════ -->
+    <div class="week-panel" id="panel-it">
+      <div class="week-cols">
+
+        <div class="week-col">
+          <span class="week-col-label">Questa settimana · 21–26 aprile</span>
+          <h3>Rally di sollievo sulla tregua commerciale — senza vera convinzione</h3>
+          <div class="week-body">
+            <!-- ─── MODIFICARE QUESTO TESTO OGNI DOMENICA ─── -->
+            <p>Il tema dominante della settimana è stata la <strong>tregua commerciale USA-Cina</strong> — una pausa di 90 giorni nell'escalation tariffaria che ha innescato un forte rally di sollievo sui mercati azionari globali. L'S&P 500 è rimbalzato di circa <strong>+4,6%</strong> dai minimi di lunedì, mentre gli indici europei hanno recuperato più modestamente.</p>
+            <p>L'oro ha consolidato vicino ai <strong>3 320 USD</strong>, mantenendo il suo trend rialzista strutturale. Il WTI è sceso sotto i <strong>63 USD</strong> per timori sulla domanda e i segnali dell'OPEC+.</p>
+            <p>La Federal Reserve è rimasta in attesa. Powell ha mantenuto un tono prudente — nessun taglio dei tassi prima che l'inflazione mostri un percorso discendente sostenuto. Il dollaro è rimasto debole, con EUR/USD sopra 1,13.</p>
+            <p>L'errore della settimana: il mercato ha prezzato una risoluzione quasi perfetta del conflitto commerciale. Le tensioni strutturali — restrizioni tecnologiche, Taiwan, terre rare — restano irrisolte. Questo rally ha basi solide solo se la tregua regge.</p>
+            <!-- ─── FINE BLOCCO MODIFICABILE ─── -->
+          </div>
+          <div class="week-score-row">
+            <div class="week-score-item"><span class="ws-label">Score med.</span><span class="ws-val">53</span></div>
+            <div class="week-score-item"><span class="ws-label">Picco</span><span class="ws-val up">68</span></div>
+            <div class="week-score-item"><span class="ws-label">Min.</span><span class="ws-val down">38</span></div>
+            <div class="week-score-item"><span class="ws-label">Bias</span><span class="ws-val neutral">Misto</span></div>
+          </div>
+        </div>
+
+        <div class="week-col-divider"></div>
+
+        <div class="week-col">
+          <span class="week-col-label">Prossima settimana · 28 apr – 2 mag</span>
+          <h3>Settimana Fed, dati PCE & apice della stagione degli utili</h3>
+          <div class="week-body">
+            <!-- ─── MODIFICARE QUESTO TESTO OGNI DOMENICA ─── -->
+            <p>La prossima settimana è <strong>ricca di macro</strong>. Le pubblicazioni chiave definiranno se il rally attuale ha basi fondamentali o rimane guidato puramente dal sentiment.</p>
+            <p>Il <strong>FOMC (mer–gio)</strong> è il fulcro. Nessuna variazione dei tassi attesa, ma la conferenza stampa di Powell sarà analizzata per qualsiasi segnale di pivot. Un'indicazione su tagli a luglio sarebbe rialzista per le azioni e ribassista per il dollaro.</p>
+            <p>Il <strong>PCE core (mercoledì)</strong> è l'indicatore d'inflazione preferito dalla Fed. Un dato sotto 2,6% rinforzerebbe la narrativa della disinflazione — un dato alto complicherebbe significativamente il calendario dei tagli.</p>
+            <p>Gli utili continuano con <strong>Apple, Amazon e Meta</strong>. La guidance sul capex AI e la domanda dei consumatori saranno i principali driver di mercato. Una delusione su questi tre nomi potrebbe frenare rapidamente il rally.</p>
+            <p>Sul fronte geopolitico, i <strong>meccanismi della tregua USA-Cina</strong> verranno testati a livello di gruppi di lavoro. Monitorare ogni irrigidimento del discorso sui controlli all'esportazione di semiconduttori.</p>
+            <!-- ─── FINE BLOCCO MODIFICABILE ─── -->
+          </div>
+          <div class="week-events">
+            <div class="week-event"><span class="week-event-date">Lun 28</span><div class="week-event-text"><strong>Dallas Fed Manifatturiero</strong> — segnale precoce sull'attività USA post-tregua.</div></div>
+            <div class="week-event"><span class="week-event-date">Mer 30</span><div class="week-event-text"><strong>PCE core · ADP occupazione</strong> — inflazione + mercato del lavoro prima dell'NFP.</div></div>
+            <div class="week-event"><span class="week-event-date">Gio 1</span><div class="week-event-text"><strong>Decisione FOMC · Conf. Powell</strong> — nessuna variazione attesa, ogni parola conta. Utili Apple & Amazon.</div></div>
+            <div class="week-event"><span class="week-event-date">Ven 2</span><div class="week-event-text"><strong>Rapporto NFP</strong> — consensus ~170K. Il risultato darà il tono per maggio.</div></div>
+          </div>
+        </div>
+
+      </div>
+      <p class="week-stamp">Settimana 17 · 2026 · Aggiornato ogni domenica · @TheMacroDesk</p>
+    </div>
+
   </div>
 </section>
 
@@ -801,42 +1130,42 @@ footer {
       <div class="market-card">
         <span class="market-ticker">S&P 500</span>
         <h4>US Equities</h4>
-        <p class="market-change mdown">Broad market · ATH zone · Ceasefire risk</p>
+        <p class="market-change mup">Trade truce rally · +4.6% · Resistance 5 650</p>
       </div>
       <div class="market-card">
         <span class="market-ticker">WTI / Brent</span>
         <h4>Crude Oil</h4>
-        <p class="market-change mdown">Hormuz closed · +7% Sunday · $90+</p>
+        <p class="market-change mdown">Demand concerns · $63 · OPEC+ pressure</p>
       </div>
       <div class="market-card">
         <span class="market-ticker">XAU/USD</span>
         <h4>Gold</h4>
-        <p class="market-change mup">Safe haven · $4 750 · Structural bull</p>
+        <p class="market-change mup">Safe haven · $3 320 · Structural bull</p>
       </div>
       <div class="market-card">
         <span class="market-ticker">VIX</span>
         <h4>Volatility</h4>
-        <p class="market-change mdown">Fear index · Back above 20 · Elevated</p>
+        <p class="market-change mdown">Fear index · 25 · Easing but elevated</p>
       </div>
       <div class="market-card">
         <span class="market-ticker">DAX / CAC</span>
         <h4>Europe</h4>
-        <p class="market-change mdown">–1.1% Monday · Energy drag · Iran risk</p>
+        <p class="market-change mflat">Mixed recovery · Trade truce relief</p>
       </div>
       <div class="market-card">
         <span class="market-ticker">10Y UST</span>
         <h4>US Treasuries</h4>
-        <p class="market-change mflat">4.31% · Fed independence risk · Warsh</p>
+        <p class="market-change mflat">4.28% · Fed pause · Watching PCE</p>
       </div>
       <div class="market-card">
         <span class="market-ticker">EUR/USD</span>
         <h4>FX</h4>
-        <p class="market-change mflat">1.18 · USD strong on risk-off</p>
+        <p class="market-change mup">1.13+ · USD weak · Risk-on flow</p>
       </div>
       <div class="market-card">
         <span class="market-ticker">BTC/USD</span>
         <h4>Bitcoin</h4>
-        <p class="market-change mup">Risk barometer · $77K · Tracking Iran</p>
+        <p class="market-change mup">Risk barometer · $94K · Recovery mode</p>
       </div>
     </div>
   </div>
@@ -859,38 +1188,38 @@ footer {
       <div class="insta-grid">
         <div class="insta-post">
           <span class="ip-label">S&P Score</span>
-          <span class="ip-val">40/100</span>
-          <span class="ip-change down">Defensive</span>
+          <span class="ip-val">53/100</span>
+          <span class="ip-change neutral">Cautious</span>
           <span class="ip-tag">@TheMacroDesk</span>
         </div>
         <div class="insta-post">
           <span class="ip-label">WTI Crude</span>
-          <span class="ip-val">$90</span>
-          <span class="ip-change down">+7.1% ↑</span>
+          <span class="ip-val">$63</span>
+          <span class="ip-change down">–2.4% ↓</span>
           <span class="ip-tag">@TheMacroDesk</span>
         </div>
         <div class="insta-post">
           <span class="ip-label">Decision</span>
           <span class="ip-val" style="font-size:1.1rem;">CAUTION</span>
-          <span class="ip-change neutral">72% conf.</span>
+          <span class="ip-change neutral">61% conf.</span>
           <span class="ip-tag">@TheMacroDesk</span>
         </div>
         <div class="insta-post">
           <span class="ip-label">Gold XAU</span>
-          <span class="ip-val">$4 750</span>
+          <span class="ip-val">$3 320</span>
           <span class="ip-change up">Safe Haven</span>
           <span class="ip-tag">@TheMacroDesk</span>
         </div>
         <div class="insta-post">
           <span class="ip-label">Scenarios</span>
-          <span class="ip-val" style="font-size:1rem;">🟢20 🟡45 🔴35</span>
+          <span class="ip-val" style="font-size:1rem;">🟢25 🟡40 🔴35</span>
           <span class="ip-change neutral">%</span>
           <span class="ip-tag">@TheMacroDesk</span>
         </div>
         <div class="insta-post">
           <span class="ip-label">VIX</span>
-          <span class="ip-val">> 20</span>
-          <span class="ip-change down">↑ Alert</span>
+          <span class="ip-val">25</span>
+          <span class="ip-change down">↓ Easing</span>
           <span class="ip-tag">@TheMacroDesk</span>
         </div>
       </div>
@@ -908,6 +1237,7 @@ footer {
     <a href="#about">About</a>
     <a href="#briefs">Daily Briefs</a>
     <a href="#signal">Live Signal</a>
+    <a href="#weekly">Weekly Review</a>
     <a href="#markets">Markets</a>
     <a href="https://instagram.com/themacrodesks" target="_blank">Instagram</a>
   </div>
@@ -924,17 +1254,29 @@ footer {
      JAVASCRIPT
 ═══════════════════════════════════════ -->
 <script>
-// ── HERO STATS (can be updated daily) ──────────────────────
+// ── HERO STATS (update daily) ──────────────────────────────
 const todayData = {
   score: "53",
   signal: "CAUTION",
-  confidence: "72%"
+  confidence: "61%"
 };
 document.getElementById('hero-score-val').textContent = todayData.score;
 document.getElementById('hero-signal-val').textContent = todayData.signal;
 document.getElementById('hero-conf-val').textContent = todayData.confidence;
 
-// ── SCROLL REVEAL ────────────────────────────────────────────
+// ── LANGUAGE SWITCHER ──────────────────────────────────────
+function switchLang(lang) {
+  // Hide all panels
+  document.querySelectorAll('.week-panel').forEach(p => p.classList.remove('active'));
+  // Deactivate all buttons
+  document.querySelectorAll('.wlang-btn').forEach(b => b.classList.remove('active'));
+  // Show selected panel
+  document.getElementById('panel-' + lang).classList.add('active');
+  // Activate matching button
+  event.target.classList.add('active');
+}
+
+// ── SCROLL REVEAL ──────────────────────────────────────────
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
     if (e.isIntersecting) {
